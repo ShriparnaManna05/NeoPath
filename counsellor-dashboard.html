@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counsellor Dashboard - NeoPath</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="logo copy.png" alt="NeoPath Logo" width="40" height="40" onerror="this.onerror=null;this.src='assets/neopath-logo.svg'">
+                </div>
+                <span class="logo-text">NeoPath</span>
+            </div>
+            <div class="nav-user">
+                <span class="user-name">Welcome, Counsellor</span>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#overview" class="sidebar-link active" onclick="showSection('overview')">
+                    <i class="fas fa-home"></i> Overview
+                </a></li>
+                <li><a href="#profile" class="sidebar-link" onclick="showSection('profile')">
+                    <i class="fas fa-user"></i> Profile
+                </a></li>
+                <li><a href="#sessions" class="sidebar-link" onclick="showSection('sessions')">
+                    <i class="fas fa-video"></i> Sessions
+                </a></li>
+                <li><a href="#students" class="sidebar-link" onclick="showSection('students')">
+                    <i class="fas fa-user-graduate"></i> Students
+                </a></li>
+                <li><a href="#mentoring" class="sidebar-link" onclick="showSection('mentoring')">
+                    <i class="fas fa-users"></i> Mentoring
+                </a></li>
+                <li><a href="#reports" class="sidebar-link" onclick="showSection('reports')">
+                    <i class="fas fa-chart-bar"></i> Reports
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1 class="dashboard-title">Counsellor Dashboard</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Sessions</h3>
+                            <p class="stat-number">8</p>
+                            <p class="stat-label">This month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Students Counselled</h3>
+                            <p class="stat-number">24</p>
+                            <p class="stat-label">Total</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Average Rating</h3>
+                            <p class="stat-number">4.8</p>
+                            <p class="stat-label">Excellent</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Mentees</h3>
+                            <p class="stat-number">3</p>
+                            <p class="stat-label">Under guidance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Today's Schedule</h3>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">10:00 AM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Career Guidance Session</h4>
+                                    <p>with Sarah Johnson</p>
+                                    <span class="session-type video">Video Call</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn btn-sm btn-primary">Join</button>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">2:00 PM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Skills Development</h4>
+                                    <p>with Michael Chen</p>
+                                    <span class="session-type chat">Chat Session</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn btn-sm btn-outline">Start</button>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">4:00 PM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Mentoring Session</h4>
+                                    <p>with Junior Counsellor</p>
+                                    <span class="session-type offline">In-Person</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn btn-sm btn-outline">Prepare</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Recent Student Feedback</h3>
+                        <div class="feedback-list">
+                            <div class="feedback-item">
+                                <div class="feedback-content">
+                                    <p>"Dr. Johnson provided excellent career guidance and helped me identify my strengths. Highly recommended!"</p>
+                                </div>
+                                <div class="feedback-meta">
+                                    <span class="student-name">Sarah Johnson</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-content">
+                                    <p>"The session was very insightful and helped me understand my career options better. Thank you!"</p>
+                                </div>
+                                <div class="feedback-meta">
+                                    <span class="student-name">Michael Chen</span>
+                                    <span class="rating">★★★★☆</span>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-content">
+                                    <p>"Great mentoring session. Learned a lot about counselling techniques and student engagement."</p>
+                                </div>
+                                <div class="feedback-meta">
+                                    <span class="student-name">Emma Wilson</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <h1 class="dashboard-title">Professional Profile</h1>
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Dr. Sarah Johnson</h2>
+                                <p>Senior Career Counsellor</p>
+                                <p>sarah.johnson@neopath.com</p>
+                            </div>
+                        </div>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" value="Dr. Sarah Johnson" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">Professional Title</label>
+                                    <input type="text" id="title" value="Senior Career Counsellor" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="sarah.johnson@neopath.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" value="+1 (555) 987-6543" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="qualifications">Qualifications</label>
+                                <textarea id="qualifications" rows="3" placeholder="List your educational qualifications">PhD in Psychology, Master's in Career Counselling, Certified Career Development Facilitator</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Experience</label>
+                                <textarea id="experience" rows="4" placeholder="Describe your professional experience">10+ years in career counselling, specializing in technology and healthcare sectors. Former HR Director at Fortune 500 companies.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="specialties">Specialties</label>
+                                <textarea id="specialties" rows="3" placeholder="List your areas of expertise">Career Transition, Leadership Development, Technology Careers, Healthcare Professions</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="bio">Professional Bio</label>
+                                <textarea id="bio" rows="4" placeholder="Write a brief professional bio">Experienced career counsellor with a passion for helping individuals discover their true potential. Specialized in technology and healthcare career guidance with a track record of successful student outcomes.</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sessions Section -->
+            <section id="sessions" class="dashboard-section">
+                <h1 class="dashboard-title">Session Management</h1>
+                <div class="sessions-container">
+                    <div class="session-tabs">
+                        <button class="tab-btn active" onclick="showSessionTab('upcoming')">Upcoming Sessions</button>
+                        <button class="tab-btn" onclick="showSessionTab('completed')">Completed Sessions</button>
+                        <button class="tab-btn" onclick="showSessionTab('schedule')">Schedule New</button>
+                    </div>
+
+                    <div class="session-content">
+                        <!-- Upcoming Sessions -->
+                        <div id="upcoming-sessions" class="session-tab active">
+                            <div class="session-list">
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <h4>Career Guidance Session</h4>
+                                        <p>Student: Sarah Johnson</p>
+                                        <p class="session-time">Tomorrow, 10:00 AM - 11:00 AM</p>
+                                        <span class="session-type video">Video Call</span>
+                                    </div>
+                                    <div class="session-actions">
+                                        <button class="btn btn-sm btn-primary">Join Session</button>
+                                        <button class="btn btn-sm btn-outline">Reschedule</button>
+                                    </div>
+                                </div>
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <h4>Skills Development</h4>
+                                        <p>Student: Michael Chen</p>
+                                        <p class="session-time">Friday, 2:00 PM - 3:00 PM</p>
+                                        <span class="session-type chat">Chat Session</span>
+                                    </div>
+                                    <div class="session-actions">
+                                        <button class="btn btn-sm btn-primary">Prepare</button>
+                                        <button class="btn btn-sm btn-outline">Reschedule</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Completed Sessions -->
+                        <div id="completed-sessions" class="session-tab">
+                            <div class="session-list">
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <h4>Career Guidance Session</h4>
+                                        <p>Student: Emma Wilson</p>
+                                        <p class="session-time">Completed on Dec 15, 2024</p>
+                                        <span class="session-type video">Video Call</span>
+                                    </div>
+                                    <div class="session-rating">
+                                        <span class="rating">★★★★★</span>
+                                        <span class="rating-text">Excellent</span>
+                                    </div>
+                                </div>
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <h4>Skills Development</h4>
+                                        <p>Student: David Lee</p>
+                                        <p class="session-time">Completed on Dec 12, 2024</p>
+                                        <span class="session-type chat">Chat Session</span>
+                                    </div>
+                                    <div class="session-rating">
+                                        <span class="rating">★★★★☆</span>
+                                        <span class="rating-text">Very Good</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Schedule New Session -->
+                        <div id="schedule-session" class="session-tab">
+                            <form class="session-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="studentSelect">Select Student</label>
+                                        <select id="studentSelect" required>
+                                            <option value="">Choose a student</option>
+                                            <option value="sarah">Sarah Johnson</option>
+                                            <option value="michael">Michael Chen</option>
+                                            <option value="emma">Emma Wilson</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sessionType">Session Type</label>
+                                        <select id="sessionType" required>
+                                            <option value="">Select session type</option>
+                                            <option value="video">Video Call</option>
+                                            <option value="chat">Chat Session</option>
+                                            <option value="offline">In-Person Meeting</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="sessionDate">Date</label>
+                                        <input type="date" id="sessionDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sessionTime">Time</label>
+                                        <input type="time" id="sessionTime" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sessionDuration">Duration (minutes)</label>
+                                    <select id="sessionDuration" required>
+                                        <option value="30">30 minutes</option>
+                                        <option value="45">45 minutes</option>
+                                        <option value="60" selected>60 minutes</option>
+                                        <option value="90">90 minutes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sessionNotes">Session Notes (Optional)</label>
+                                    <textarea id="sessionNotes" rows="3" placeholder="Add any notes about the session"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Schedule Session</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Students Section -->
+            <section id="students" class="dashboard-section">
+                <h1 class="dashboard-title">Student Management</h1>
+                <div class="students-container">
+                    <div class="students-header">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search students..." id="studentSearch">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button class="btn btn-primary" onclick="showAddStudentModal()">Add Student</button>
+                    </div>
+                    <div class="students-grid">
+                        <div class="student-card">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="student-info">
+                                <h3>Sarah Johnson</h3>
+                                <p>sarah.johnson@email.com</p>
+                                <div class="student-stats">
+                                    <span class="stat">Assessments: 3/5</span>
+                                    <span class="stat">Sessions: 2</span>
+                                </div>
+                            </div>
+                            <div class="student-actions">
+                                <button class="btn btn-sm btn-primary">View Profile</button>
+                                <button class="btn btn-sm btn-outline">Message</button>
+                            </div>
+                        </div>
+                        <div class="student-card">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="student-info">
+                                <h3>Michael Chen</h3>
+                                <p>michael.chen@email.com</p>
+                                <div class="student-stats">
+                                    <span class="stat">Assessments: 2/5</span>
+                                    <span class="stat">Sessions: 1</span>
+                                </div>
+                            </div>
+                            <div class="student-actions">
+                                <button class="btn btn-sm btn-primary">View Profile</button>
+                                <button class="btn btn-sm btn-outline">Message</button>
+                            </div>
+                        </div>
+                        <div class="student-card">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="student-info">
+                                <h3>Emma Wilson</h3>
+                                <p>emma.wilson@email.com</p>
+                                <div class="student-stats">
+                                    <span class="stat">Assessments: 4/5</span>
+                                    <span class="stat">Sessions: 3</span>
+                                </div>
+                            </div>
+                            <div class="student-actions">
+                                <button class="btn btn-sm btn-primary">View Profile</button>
+                                <button class="btn btn-sm btn-outline">Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mentoring Section -->
+            <section id="mentoring" class="dashboard-section">
+                <h1 class="dashboard-title">Mentoring Program</h1>
+                <div class="mentoring-container">
+                    <div class="mentoring-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Mentees</h3>
+                                <p class="stat-number">3</p>
+                                <p class="stat-label">Active</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Mentoring Sessions</h3>
+                                <p class="stat-number">12</p>
+                                <p class="stat-label">This month</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Mentor Rating</h3>
+                                <p class="stat-number">4.9</p>
+                                <p class="stat-label">Excellent</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mentoring-content">
+                        <div class="mentees-list">
+                            <h3>Your Mentees</h3>
+                            <div class="mentee-cards">
+                                <div class="mentee-card">
+                                    <div class="mentee-info">
+                                        <div class="mentee-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="mentee-details">
+                                            <h4>Dr. Emma Wilson</h4>
+                                            <p>Junior Counsellor</p>
+                                            <p>6 months experience</p>
+                                        </div>
+                                    </div>
+                                    <div class="mentee-progress">
+                                        <div class="progress-item">
+                                            <span>Assessment Skills</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span>Session Management</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 70%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mentee-actions">
+                                        <button class="btn btn-sm btn-primary">Schedule Meeting</button>
+                                        <button class="btn btn-sm btn-outline">View Progress</button>
+                                    </div>
+                                </div>
+                                <div class="mentee-card">
+                                    <div class="mentee-info">
+                                        <div class="mentee-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="mentee-details">
+                                            <h4>Prof. David Lee</h4>
+                                            <p>New Counsellor</p>
+                                            <p>2 months experience</p>
+                                        </div>
+                                    </div>
+                                    <div class="mentee-progress">
+                                        <div class="progress-item">
+                                            <span>Assessment Skills</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <span>Session Management</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 45%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mentee-actions">
+                                        <button class="btn btn-sm btn-primary">Schedule Meeting</button>
+                                        <button class="btn btn-sm btn-outline">View Progress</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="dashboard-section">
+                <h1 class="dashboard-title">Student Messages</h1>
+                <div class="messages-container">
+                    <div class="messages-header">
+                        <h3>Anonymous Student Messages</h3>
+                        <p class="messages-subtitle">Students can send you anonymous encrypted messages for doubt solving</p>
+                    </div>
+                    
+                    <div class="messages-layout">
+                        <!-- Student Conversations List -->
+                        <div class="conversations-list" id="conversationsList">
+                            <h4>Student Conversations</h4>
+                            <div id="conversationsContainer">
+                                <!-- Conversations will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Area -->
+                        <div class="chat-area">
+                            <div class="chat-header" id="chatHeader">
+                                <div class="chat-header-info">
+                                    <h4 id="chatStudentName">Select a conversation to view messages</h4>
+                                    <span class="encryption-badge">
+                                        <i class="fas fa-lock"></i> Encrypted & Anonymous
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="empty-chat">
+                                    <i class="fas fa-comment-slash"></i>
+                                    <p>Select a student conversation to view messages</p>
+                                    <p class="anonymous-notice">All student messages are anonymous and encrypted for privacy</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input-container">
+                                <div class="chat-input-wrapper">
+                                    <input type="text" id="messageInput" placeholder="Type your reply..." />
+                                    <button class="btn btn-primary" onclick="sendCounsellorMessage()">
+                                        <i class="fas fa-paper-plane"></i> Send Reply
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="dashboard-section">
+                <h1 class="dashboard-title">Reports & Analytics</h1>
+                <div class="reports-container">
+                    <div class="reports-filters">
+                        <div class="filter-group">
+                            <label for="reportPeriod">Time Period</label>
+                            <select id="reportPeriod">
+                                <option value="7">Last 7 days</option>
+                                <option value="30" selected>Last 30 days</option>
+                                <option value="90">Last 90 days</option>
+                                <option value="365">Last year</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="reportType">Report Type</label>
+                            <select id="reportType">
+                                <option value="sessions">Session Activity</option>
+                                <option value="students">Student Progress</option>
+                                <option value="feedback">Feedback Analysis</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+                    </div>
+
+                    <div class="reports-content">
+                        <div class="report-card">
+                            <h3>Session Activity Report</h3>
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="stat-label">Total Sessions</span>
+                                    <span class="stat-value">24</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-label">Average Duration</span>
+                                    <span class="stat-value">52 min</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-label">Completion Rate</span>
+                                    <span class="stat-value">96%</span>
+                                </div>
+                            </div>
+                            <div class="report-chart">
+                                <canvas id="sessionChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <h3>Student Feedback Analysis</h3>
+                            <div class="feedback-analysis">
+                                <div class="feedback-score">
+                                    <span class="score">4.8</span>
+                                    <span class="score-label">Average Rating</span>
+                                </div>
+                                <div class="feedback-breakdown">
+                                    <div class="rating-item">
+                                        <span>★★★★★</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 80%"></div>
+                                        </div>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>★★★★☆</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 15%"></div>
+                                        </div>
+                                        <span>15%</span>
+                                    </div>
+                                    <div class="rating-item">
+                                        <span>★★★☆☆</span>
+                                        <div class="rating-bar">
+                                            <div class="rating-fill" style="width: 5%"></div>
+                                        </div>
+                                        <span>5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="counsellor-dashboard.js"></script>
+    <script src="messaging.js"></script>
+    <script src="counsellor-messaging.js"></script>
+</body>
+</html>

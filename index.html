@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoPath - Reinventing the Career Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="logo copy.png" alt="NeoPath Logo" width="40" height="40" onerror="this.onerror=null;this.src='assets/neopath-logo.svg'">
+                </div>
+                <span class="logo-text">NeoPath</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link login-btn" onclick="showLoginModal()">Login</a></li>
+                <li><a href="#" class="nav-link register-btn" onclick="showRegisterModal()">Register</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <img src="logo copy.png" alt="NeoPath – Reinventing the Career Journey" class="hero-logo" onerror="this.onerror=null;this.src='assets/neopath-logo-full.svg'">
+                <h1 class="hero-title">Reinventing the Career Journey</h1>
+                <p class="hero-subtitle">Discover your true potential with personalized career guidance, assessments, and expert counselling</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showRegisterModal()">Get Started</button>
+                    <button class="btn btn-secondary" onclick="scrollToFeatures()">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <div class="card-header">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Student Dashboard</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="progress-item">
+                            <span>Assessment Progress</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number">85%</span>
+                                <span class="stat-label">Aptitude Score</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Sessions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">How NeoPath Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Register & Profile</h3>
+                    <p>Create your profile with personal details, skills, and career preferences</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Take Assessments</h3>
+                    <p>Complete aptitude, personality, and skill tests to discover your strengths</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>View Results</h3>
+                    <p>Get detailed insights into your performance and career recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Counselling</h3>
+                    <p>Schedule one-on-one sessions with qualified career counsellors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Types Section -->
+    <section class="user-types">
+        <div class="container">
+            <h2 class="section-title">For Everyone</h2>
+            <div class="user-cards">
+                <div class="user-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Students</h3>
+                    <ul>
+                        <li>Create detailed profiles</li>
+                        <li>Take comprehensive assessments</li>
+                        <li>Receive career suggestions</li>
+                        <li>Book counselling sessions</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="showRegisterModal('student')">Join as Student</button>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Counsellors</h3>
+                    <ul>
+                        <li>Manage professional profiles</li>
+                        <li>Conduct counselling sessions</li>
+                        <li>Mentor other counsellors</li>
+                        <li>Track student progress</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="showRegisterModal('counsellor')">Join as Counsellor</button>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Administrators</h3>
+                    <ul>
+                        <li>Manage all users</li>
+                        <li>Generate detailed reports</li>
+                        <li>Monitor platform activity</li>
+                        <li>Maintain resources</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="showRegisterModal('admin')">Admin Access</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login to NeoPath</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="userType">User Type</label>
+                    <select id="userType" required>
+                        <option value="">Select User Type</option>
+                        <option value="student">Student</option>
+                        <option value="counsellor">Counsellor</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Join NeoPath</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUserType">User Type</label>
+                    <select id="regUserType" required>
+                        <option value="">Select User Type</option>
+                        <option value="student">Student</option>
+                        <option value="counsellor">Counsellor</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">Phone Number</label>
+                    <input type="tel" id="regPhone" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <img src="assets/neopath-logo.png" alt="NeoPath Logo" width="30" height="30" onerror="this.onerror=null;this.src='assets/neopath-logo.svg'">
+                        </div>
+                        <span>NeoPath</span>
+                    </div>
+                    <p>Reinventing the Career Journey</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NeoPath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

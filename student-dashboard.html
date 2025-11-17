@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - NeoPath</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <img src="logo copy.png" alt="NeoPath Logo" width="40" height="40" onerror="this.onerror=null;this.src='assets/neopath-logo.svg'">
+                </div>
+                <span class="logo-text">NeoPath</span>
+            </div>
+            <div class="nav-user">
+                <span class="user-name">Welcome, Student</span>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#overview" class="sidebar-link active" onclick="showSection('overview')">
+                    <i class="fas fa-home"></i> Overview
+                </a></li>
+                <li><a href="#profile" class="sidebar-link" onclick="showSection('profile')">
+                    <i class="fas fa-user"></i> Profile
+                </a></li>
+                <li><a href="#assessments" class="sidebar-link" onclick="showSection('assessments')">
+                    <i class="fas fa-clipboard-check"></i> Assessments
+                </a></li>
+                <li><a href="#results" class="sidebar-link" onclick="showSection('results')">
+                    <i class="fas fa-chart-line"></i> Results
+                </a></li>
+                <li><a href="#sessions" class="sidebar-link" onclick="showSection('sessions')">
+                    <i class="fas fa-video"></i> Sessions
+                </a></li>
+                <li><a href="#career-paths" class="sidebar-link" onclick="showSection('career-paths')">
+                    <i class="fas fa-route"></i> Career Paths
+                </a></li>
+                <li><a href="#messages" class="sidebar-link" onclick="showSection('messages')">
+                    <i class="fas fa-comments"></i> Messages
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1 class="dashboard-title">Student Dashboard</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Assessments Taken</h3>
+                            <p class="stat-number">3</p>
+                            <p class="stat-label">out of 5</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Average Score</h3>
+                            <p class="stat-number">85%</p>
+                            <p class="stat-label">Excellent</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Sessions Booked</h3>
+                            <p class="stat-number">2</p>
+                            <p class="stat-label">This month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Career Paths</h3>
+                            <p class="stat-number">5</p>
+                            <p class="stat-label">Suggested</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Assessments</h3>
+                        <div class="assessment-list">
+                            <div class="assessment-item">
+                                <div class="assessment-info">
+                                    <h4>Aptitude Test</h4>
+                                    <p>Completed 2 days ago</p>
+                                </div>
+                                <div class="assessment-score">
+                                    <span class="score">92%</span>
+                                    <span class="status passed">Passed</span>
+                                </div>
+                            </div>
+                            <div class="assessment-item">
+                                <div class="assessment-info">
+                                    <h4>Personality Test</h4>
+                                    <p>Completed 1 week ago</p>
+                                </div>
+                                <div class="assessment-score">
+                                    <span class="score">78%</span>
+                                    <span class="status passed">Passed</span>
+                                </div>
+                            </div>
+                            <div class="assessment-item">
+                                <div class="assessment-info">
+                                    <h4>Skill Assessment</h4>
+                                    <p>In Progress</p>
+                                </div>
+                                <div class="assessment-score">
+                                    <span class="score">-</span>
+                                    <span class="status pending">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Upcoming Sessions</h3>
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h4>Career Guidance Session</h4>
+                                    <p>with Dr. Sarah Johnson</p>
+                                    <p class="session-time">Tomorrow, 2:00 PM</p>
+                                </div>
+                                <div class="session-actions">
+                                    <button class="btn btn-sm btn-primary">Join</button>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h4>Skills Development</h4>
+                                    <p>with Prof. Michael Chen</p>
+                                    <p class="session-time">Next Friday, 10:00 AM</p>
+                                </div>
+                                <div class="session-actions">
+                                    <button class="btn btn-sm btn-outline">Reschedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <h1 class="dashboard-title">Profile Management</h1>
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Shriparna Manna</h2>
+                                <p>mannashriparna@email.com</p>
+                                <p>+91-8367862877</p>
+                            </div>
+                        </div>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" value="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" value="Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="john.doe@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" value="+1 (555) 123-4567" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" id="dob" value="2000-01-15" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" required>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="skills">Skills</label>
+                                <textarea id="skills" rows="4" placeholder="Enter your skills separated by commas">JavaScript, Python, React, Data Analysis, Communication</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="interests">Career Interests</label>
+                                <textarea id="interests" rows="4" placeholder="Describe your career interests">Software Development, Data Science, Product Management</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assessments Section -->
+            <section id="assessments" class="dashboard-section">
+                <h1 class="dashboard-title">Available Assessments</h1>
+                <div class="assessments-grid">
+                    <div class="assessment-card">
+                        <div class="assessment-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Aptitude Test</h3>
+                        <p>Test your logical reasoning, mathematical ability, and problem-solving skills.</p>
+                        <div class="assessment-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 60 minutes</span>
+                            <span class="questions"><i class="fas fa-question-circle"></i> 50 questions</span>
+                        </div>
+                        <button class="btn btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="assessment-card">
+                        <div class="assessment-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Personality Test</h3>
+                        <p>Discover your personality traits and how they align with different career paths.</p>
+                        <div class="assessment-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 45 minutes</span>
+                            <span class="questions"><i class="fas fa-question-circle"></i> 100 questions</span>
+                        </div>
+                        <button class="btn btn-primary">Start Assessment</button>
+                    </div>
+                    <div class="assessment-card">
+                        <div class="assessment-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Skill Assessment</h3>
+                        <p>Evaluate your technical and soft skills across various domains.</p>
+                        <div class="assessment-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 90 minutes</span>
+                            <span class="questions"><i class="fas fa-question-circle"></i> 75 questions</span>
+                        </div>
+                        <button class="btn btn-primary">Start Assessment</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results" class="dashboard-section">
+                <h1 class="dashboard-title">Assessment Results</h1>
+                <div class="results-container">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>Aptitude Test</h3>
+                            <span class="result-score passed">92% - Passed</span>
+                        </div>
+                        <div class="result-details">
+                            <div class="result-section">
+                                <h4>Strengths</h4>
+                                <ul>
+                                    <li>Logical Reasoning: 95%</li>
+                                    <li>Mathematical Ability: 88%</li>
+                                    <li>Problem Solving: 90%</li>
+                                </ul>
+                            </div>
+                            <div class="result-section">
+                                <h4>Areas for Improvement</h4>
+                                <ul>
+                                    <li>Verbal Reasoning: 75%</li>
+                                    <li>Abstract Thinking: 80%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>Personality Test</h3>
+                            <span class="result-score passed">78% - Passed</span>
+                        </div>
+                        <div class="result-details">
+                            <div class="result-section">
+                                <h4>Personality Type</h4>
+                                <p><strong>Analyst (INTJ)</strong> - Strategic, independent, and analytical</p>
+                            </div>
+                            <div class="result-section">
+                                <h4>Career Recommendations</h4>
+                                <ul>
+                                    <li>Software Engineer</li>
+                                    <li>Data Scientist</li>
+                                    <li>Research Analyst</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sessions Section -->
+            <section id="sessions" class="dashboard-section">
+                <h1 class="dashboard-title">Counselling Sessions</h1>
+                <div class="sessions-container">
+                    <div class="session-booking">
+                        <h3>Book a Session</h3>
+                        <form class="booking-form">
+                            <div class="form-group">
+                                <label for="counsellor">Select Counsellor</label>
+                                <select id="counsellor" required>
+                                    <option value="">Choose a counsellor</option>
+                                    <option value="sarah">Dr. Sarah Johnson - Career Guidance</option>
+                                    <option value="michael">Prof. Michael Chen - Skills Development</option>
+                                    <option value="emma">Dr. Emma Wilson - Industry Insights</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sessionType">Session Type</label>
+                                <select id="sessionType" required>
+                                    <option value="">Select session type</option>
+                                    <option value="video">Video Call</option>
+                                    <option value="chat">Chat Session</option>
+                                    <option value="offline">In-Person Meeting</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sessionDate">Preferred Date</label>
+                                <input type="date" id="sessionDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sessionTime">Preferred Time</label>
+                                <input type="time" id="sessionTime" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book Session</button>
+                        </form>
+                    </div>
+                    <div class="session-history">
+                        <h3>Session History</h3>
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h4>Career Guidance Session</h4>
+                                    <p>with Dr. Sarah Johnson</p>
+                                    <p class="session-date">Completed on Dec 15, 2024</p>
+                                </div>
+                                <div class="session-rating">
+                                    <span class="rating">★★★★★</span>
+                                    <span class="rating-text">Excellent</span>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h4>Skills Development</h4>
+                                    <p>with Prof. Michael Chen</p>
+                                    <p class="session-date">Completed on Dec 8, 2024</p>
+                                </div>
+                                <div class="session-rating">
+                                    <span class="rating">★★★★☆</span>
+                                    <span class="rating-text">Very Good</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="dashboard-section">
+                <h1 class="dashboard-title">Anonymous Messaging</h1>
+                <div class="messages-container">
+                    <div class="messages-header">
+                        <h3>Chat with Counsellors</h3>
+                        <p class="messages-subtitle">Send anonymous encrypted messages to counsellors for any doubts or questions</p>
+                    </div>
+                    
+                    <div class="messages-layout">
+                        <!-- Counsellor List -->
+                        <div class="counsellors-list" id="counsellorsList">
+                            <h4>Available Counsellors</h4>
+                            <div class="counsellor-item" data-counsellor-id="all" onclick="selectCounsellor('all', 'Any Available Counsellor')">
+                                <div class="counsellor-avatar">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="counsellor-info">
+                                    <h5>Any Available Counsellor</h5>
+                                    <p>General inquiries</p>
+                                </div>
+                            </div>
+                            <!-- Counsellors will be loaded dynamically -->
+                        </div>
+                        
+                        <!-- Chat Area -->
+                        <div class="chat-area">
+                            <div class="chat-header" id="chatHeader">
+                                <div class="chat-header-info">
+                                    <h4 id="chatCounsellorName">Select a counsellor to start chatting</h4>
+                                    <span class="encryption-badge">
+                                        <i class="fas fa-lock"></i> Encrypted
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="empty-chat">
+                                    <i class="fas fa-comment-slash"></i>
+                                    <p>Select a counsellor to start a conversation</p>
+                                    <p class="anonymous-notice">Your messages are anonymous and encrypted</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input-container">
+                                <div class="anonymous-toggle">
+                                    <input type="checkbox" id="anonymousMode" checked>
+                                    <label for="anonymousMode">Send as Anonymous</label>
+                                </div>
+                                <div class="chat-input-wrapper">
+                                    <input type="text" id="messageInput" placeholder="Type your message..." />
+                                    <button class="btn btn-primary" onclick="sendStudentMessage()">
+                                        <i class="fas fa-paper-plane"></i> Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Paths Section -->
+            <section id="career-paths" class="dashboard-section">
+                <h1 class="dashboard-title">Suggested Career Paths</h1>
+                <div class="career-paths-grid">
+                    <div class="career-path-card">
+                        <div class="career-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Software Engineer</h3>
+                        <p class="match-score">95% Match</p>
+                        <p>Develop applications and software solutions using programming languages and frameworks.</p>
+                        <div class="career-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">$70,000 - $150,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Rate:</span>
+                                <span class="detail-value">22% (2020-2030)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Required Skills:</span>
+                                <span class="detail-value">Programming, Problem Solving, Teamwork</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                    <div class="career-path-card">
+                        <div class="career-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Data Scientist</h3>
+                        <p class="match-score">88% Match</p>
+                        <p>Analyze complex data to help organizations make informed business decisions.</p>
+                        <div class="career-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">$80,000 - $180,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Rate:</span>
+                                <span class="detail-value">36% (2020-2030)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Required Skills:</span>
+                                <span class="detail-value">Statistics, Machine Learning, Python</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                    <div class="career-path-card">
+                        <div class="career-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Product Manager</h3>
+                        <p class="match-score">82% Match</p>
+                        <p>Lead product development and strategy to deliver value to customers and business.</p>
+                        <div class="career-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">$90,000 - $200,000</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Rate:</span>
+                                <span class="detail-value">8% (2020-2030)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Required Skills:</span>
+                                <span class="detail-value">Leadership, Communication, Strategy</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="messaging.js"></script>
+    <script src="student-messaging.js"></script>
+</body>
+</html>
