@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Outfit', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-slate-900 bg-slate-50 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-50 via-white to-cyan-50 min-h-screen transition-colors duration-500 ease-in-out;
+  }
+  
+  .dark body {
+    @apply text-slate-100 bg-slate-950 from-slate-900 via-indigo-950 to-slate-950;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-slate-50 text-slate-700 font-semibold py-2.5 px-5 rounded-xl border border-slate-200 transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply block w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-xl shadow-sm backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm hover:bg-white;
+  }
+  
+  .input-field-error {
+    @apply block w-full px-4 py-3 bg-red-50/50 border border-red-300 rounded-xl shadow-sm backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 sm:text-sm;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/20 transition-all duration-300 hover:shadow-2xl hover:bg-white/90;
+  }
+  
+  .glass-panel {
+    @apply bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg border border-white/40 dark:border-slate-800/60 shadow-xl rounded-3xl transition-colors duration-300;
+  }
+  
+  .card-header {
+    @apply px-6 py-5 border-b border-slate-100/50;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+  
+  .badge-success {
+    @apply bg-emerald-100 text-emerald-800 border border-emerald-200;
+  }
+  
+  .badge-warning {
+    @apply bg-amber-100 text-amber-800 border border-amber-200;
+  }
+  
+  .badge-error {
+    @apply bg-rose-100 text-rose-800 border border-rose-200;
+  }
+  
+  .badge-info {
+    @apply bg-indigo-100 text-indigo-800 border border-indigo-200;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-slate-200 border-t-indigo-600;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent;
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 10px 30px -5px rgba(0, 0, 0, 0.03);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bounce-gentle {
+  animation: bounceGentle 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  @apply h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded transition-colors duration-200;
+}
+
+/* Custom radio styles */
+.custom-radio {
+  @apply h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-slate-300 transition-colors duration-200;
+}

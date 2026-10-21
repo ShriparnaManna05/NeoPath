@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch NeoPath Frontend",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/client"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start Backend Server",
+            "program": "${workspaceFolder}/server/index.js",
+            "cwd": "${workspaceFolder}/server",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        }
+    ]
+}

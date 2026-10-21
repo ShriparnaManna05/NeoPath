@@ -1,0 +1,84 @@
+# Dependencies
+node_modules/
+/client/node_modules/
+/server/node_modules/
+jspm_packages/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build outputs and caches
+client/build/
+server/dist/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+coverage/
+.nyc_output/
+
+# Logs and runtime data
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+pids/
+*.pid
+*.seed
+*.pid.lock
+tmp/
+temp/
+uploads/
+
+# Local databases
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+*.db
+
+# Local certificates and keys
+ssl/
+*.pem
+*.key
+*.crt
+
+# IDE and editor files
+.vscode/*
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+.tern-port
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Package artifacts and local archives
+*.tgz
+/.vscode.zip
+/client.zip
+/client/node_modules.zip
+
+# npm/yarn local files
+.npm/
+.node_repl_history
+.yarn-integrity
+
+# Backup files
+*.bak
+*.backup
