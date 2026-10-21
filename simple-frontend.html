@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoPath - Career Counselling System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg p-8">
+            <div class="text-center mb-8">
+                <div class="mx-auto h-16 w-16 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-white font-bold text-2xl">N</span>
+                </div>
+                <h1 class="text-4xl font-bold text-gray-900 mb-2">NeoPath</h1>
+                <p class="text-gray-600">Career Counselling and Guidance System</p>
+            </div>
+
+            <!-- Status Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 bg-green-50 border border-green-200 rounded-lg">
+                    <h3 class="font-semibold text-green-800 text-lg mb-2">✅ Backend Server</h3>
+                    <p class="text-green-600">Running on port 5000</p>
+                    <button onclick="testBackend()" class="mt-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        Test API
+                    </button>
+                </div>
+                
+                <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 text-lg mb-2">🚀 Features</h3>
+                    <ul class="text-blue-600 text-sm space-y-1">
+                        <li>• Student Registration & Profiles</li>
+                        <li>• Assessment System</li>
+                        <li>• AI Career Recommendations</li>
+                        <li>• Counselling Sessions</li>
+                        <li>• Real-time Communication</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- API Test Section -->
+            <div class="bg-gray-50 rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">API Testing</h3>
+                <div class="space-y-4">
+                    <button onclick="testEndpoint('/api/health')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">
+                        Health Check
+                    </button>
+                    <button onclick="testEndpoint('/api/assessments/types')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">
+                        Assessment Types
+                    </button>
+                    <button onclick="testEndpoint('/api/careers/paths')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Career Paths
+                    </button>
+                </div>
+                <div id="apiResult" class="mt-4 p-4 bg-white rounded border hidden">
+                    <h4 class="font-semibold mb-2">API Response:</h4>
+                    <pre id="apiResponse" class="text-sm text-gray-600"></pre>
+                </div>
+            </div>
+
+            <!-- System Info -->
+            <div class="mt-8 text-center text-gray-500 text-sm">
+                <p>Backend: Node.js + Express + SQLite</p>
+                <p>Frontend: React (in development)</p>
+                <p>Database: SQLite (./database.sqlite)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function testBackend() {
+            try {
+                const response = await fetch('http://localhost:5000/api/health');
+                const data = await response.json();
+                alert('Backend is working! Response: ' + JSON.stringify(data, null, 2));
+            } catch (error) {
+                alert('Backend connection failed: ' + error.message);
+            }
+        }
+
+        async function testEndpoint(endpoint) {
+            try {
+                const response = await fetch('http://localhost:5000' + endpoint);
+                const data = await response.json();
+                
+                document.getElementById('apiResult').classList.remove('hidden');
+                document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('apiResult').classList.remove('hidden');
+                document.getElementById('apiResponse').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
